@@ -23,3 +23,18 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: ["build"]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Rundeployscript
+        env:
+          RENDER_API_KEY: ${{secrets.RENDER_API_KEY}}
+          RENDER_DEPLOY_HOOK_KEY: ${{secrets.RENDER_DEPLOY_HOOK_KEY}}
+          COMMIT_REF: ${{github.sha}}
+          # This sets the commit ref to the current commit SHA
+        run: scripts/deploy.sh
