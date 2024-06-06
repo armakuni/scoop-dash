@@ -24,6 +24,9 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Run End to End tests
+        run: npm run test:e2e
+
   deploy:
     runs-on: ubuntu-latest
     needs: ["build"]
