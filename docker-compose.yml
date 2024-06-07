@@ -1,0 +1,8 @@
+services:
+  datastore:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: testPassword
+    ports:
+      - 5432:5432

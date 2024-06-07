@@ -9,12 +9,10 @@ test('Coming Soon Page', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Coming Soon!' })).toBeVisible();
 });
 
-// test('get started link', async ({ page }) => {
-//   await page.goto('/');
-//
-//   // Click the get started link.
-//   await page.getByRole('link', { name: 'Get started' }).click();
-//
-//   // Expects page to have a heading with the name of Installation.
-//   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-// });
+
+test('counter for intrested people ', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Interested Peeps: 0' })).toBeVisible();
+  
+
+});
