@@ -7,7 +7,11 @@ describe("Coming soon page", () => {
   it("should have the title of the website", async () => {
     render(<Home />);
 
-    expect(screen.getByRole("heading", { name: (text) =>  text.includes("ScoopDash") })).toBeVisible();
+    expect(
+      screen.getByRole("heading", {
+        name: (text) => text.includes("ScoopDash"),
+      }),
+    ).toBeVisible();
   });
 
   it("should say that the app is coming soon", async () => {
@@ -19,6 +23,8 @@ describe("Coming soon page", () => {
   it("should say that app is having interesed peeps", async () => {
     render(<Home />);
 
-    expect(screen.getByRole("heading", { name: "Interested Peeps: 0" })).toBeVisible();
+    expect(
+      screen.getByRole("heading", { name: "Interested Peeps: 0" }),
+    ).toBeVisible();
   });
 });

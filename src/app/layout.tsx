@@ -11,47 +11,45 @@ export const metadata: Metadata = {
       url: "/apple-touch-icon.png",
       rel: "apple-touch-icon",
       sizes: "180x180",
-      "type": "image/png"
+      type: "image/png",
     },
     {
       url: "/favicon-32x32.png",
       rel: "icon",
       sizes: "32x32",
-      "type": "image/png"
+      type: "image/png",
     },
     {
       url: "/favicon-16x16.png",
       rel: "icon",
       sizes: "16x16",
-      "type": "image/png"
+      type: "image/png",
     },
     {
       rel: "icon",
-      "url": "/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      url: "/android-chrome-192x192.png",
+      sizes: "192x192",
+      type: "image/png",
     },
     {
       rel: "icon",
-      "url": "/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+      url: "/android-chrome-512x512.png",
+      sizes: "512x512",
+      type: "image/png",
+    },
+  ],
 };
 
-
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
-
-
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-    <body
-      className={`${roboto.className} max-w-full min-h-screen bg-brand-yellow text-brand-yellow-content grid grid-cols-1 grid-rows-[4rem,1fr]`}>
-      {children}
-    </body>
+      <body
+        className={`${roboto.className} grid min-h-screen max-w-full grid-cols-1 grid-rows-[4rem,1fr] bg-brand-yellow text-brand-yellow-content`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
