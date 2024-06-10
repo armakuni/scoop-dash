@@ -16,3 +16,22 @@ test('counter for intrested people ', async ({ page }) => {
   
 
 });
+
+
+test('should have a field to add emails ', async ({ page }) => {
+  await page.goto('/');
+  // Select the text box using its role or other suitable selector
+  const textBox = page.getByRole('textbox', { name: /visitors email/i });
+
+  await textBox.fill('aalap@simform.com');
+
+  // Verify that the text box contains the value
+  await expect(textBox).toHaveValue('aalap@simform.com');
+
+  const submitButton = page.getByRole('button', { name: 'Submit' });
+  await expect(submitButton).toBeVisible();
+  await submitButton.click();
+
+  await expect(page.getByRole('heading', { name: 'Interested Peeps: 1' })).toBeVisible();
+  
+});

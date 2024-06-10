@@ -15,6 +15,7 @@
 
 import type { Metadata } from "next";
 import { Lobster_Two } from "next/font/google";
+import { FormEvent, useState } from 'react';
 
 export const metadata: Metadata = {
   title: "ScoopDash",
@@ -23,7 +24,15 @@ export const metadata: Metadata = {
 
 const lobsterTwo = Lobster_Two({ subsets: ["latin"], weight: "700" });
 
+
 export default function Home() {
+  const [count, setCount] = useState(0);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setCount(count + 1);
+
+  };
   return (
     <>
       <nav
@@ -38,7 +47,13 @@ export default function Home() {
           <h2 className={`text-center text-3xl ${lobsterTwo.className}`}>
             Coming Soon!
           </h2>
-          <h3 className={"text-center"}>Interested Peeps: 0</h3>
+          <h3 className={"text-center"}>Interested Peeps: {count}</h3>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">visitors email</label>
+            <input type="email" id="email" name="visitors email" />
+            
+            <button type="submit">Submit</button>
+          </form>
         </div>
       </main>
     </>
