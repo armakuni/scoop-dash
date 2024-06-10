@@ -47,9 +47,8 @@ describe("Coming soon page", () => {
     const emailInput = screen.getByRole('textbox', { name: /visitors email/i });
     const submitButton = screen.getByRole('button', { name: /submit/i });
 
-    userEvent.type(emailInput, "john.doe@gmail.com");
-
-    userEvent.click(submitButton);
+    await userEvent.type(emailInput, "john.doe@gmail.com");
+    await userEvent.click(submitButton);
 
     expect(
       screen.getByRole("heading", { name: "Interested Peeps: 1" }),

@@ -1,21 +1,7 @@
-// import { Pool } from 'pg'
-// import { PrismaPg } from '@prisma/adapter-pg'
-// import { PrismaClient } from '@prisma/client'
-
-// const connectionString = `${process.env.DATABASE_URL}`
-
-// const pool = new Pool({ connectionString })
-// const adapter = new PrismaPg(pool)
-// const prisma = new PrismaClient({ adapter })
-
-// export const getServerSideProps = async () => {
-//   const feed = await prisma.interestedUser.deleteMany({});
-//   return { props: { feed } }
-// }
-
 import type { Metadata } from "next";
 import { Lobster_Two } from "next/font/google";
-import { FormEvent, useState } from 'react';
+import RegisterForm from "./form";
+
 
 export const metadata: Metadata = {
   title: "ScoopDash",
@@ -26,13 +12,7 @@ const lobsterTwo = Lobster_Two({ subsets: ["latin"], weight: "700" });
 
 
 export default function Home() {
-  const [count, setCount] = useState(0);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setCount(count + 1);
-
-  };
   return (
     <>
       <nav
@@ -47,13 +27,7 @@ export default function Home() {
           <h2 className={`text-center text-3xl ${lobsterTwo.className}`}>
             Coming Soon!
           </h2>
-          <h3 className={"text-center"}>Interested Peeps: {count}</h3>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="email">visitors email</label>
-            <input type="email" id="email" name="visitors email" />
-            
-            <button type="submit">Submit</button>
-          </form>
+          <RegisterForm />
         </div>
       </main>
     </>
