@@ -3,6 +3,7 @@ import { describe, it, expect } from "vitest";
 import { screen, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Home from "./page";
+import { RepositoryProvider } from "./RepositoryProvider";
 
 describe("Coming soon page", () => {
   it("should have the title of the website", async () => {
@@ -40,7 +41,11 @@ describe("Coming soon page", () => {
   });
 
   it("should submit visitor's details and increase intrested peeps counter", async () => {
-    render(<Home />);
+    render(
+      <RepositoryProvider repository={10}>
+        <Home />
+      </RepositoryProvider>
+    );
 
     const emailInput = screen.getByRole("textbox", { name: /visitors email/i });
     const submitButton = screen.getByRole("button", { name: /submit/i });

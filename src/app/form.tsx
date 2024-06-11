@@ -1,7 +1,10 @@
 "use client";
 import { FormEvent, useState } from "react";
+import { useRepository } from "./RepositoryProvider";
 
 export default function RegisterForm() {
+  const num = useRepository();
+
   const [email, setEmail] = useState("");
   const [count, setCount] = useState(0);
 
@@ -13,6 +16,7 @@ export default function RegisterForm() {
 
   return (
     <>
+    <h1>OMG {num}</h1>
       <h3 className={"text-center"}>Interested Peeps: {count}</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">visitors email</label>

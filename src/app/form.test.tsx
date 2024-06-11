@@ -1,3 +1,8 @@
+import { screen, render } from "@testing-library/react";
+import RegisterForm from "./form";
+import { RepositoryProvider } from "./RepositoryProvider";
+import { expect } from "vitest";
+
 describe("Intrested users form", () => {
   it("should display interested peep counts", async () => {
     // Arrange - get the CuT into expected state (set up some test double)
@@ -9,12 +14,15 @@ describe("Intrested users form", () => {
     //
 
     //act (Run the CuT)
-    render(<Home />);
+    render(
+      <RepositoryProvider repository={10}>
+        <RegisterForm />
+      </RepositoryProvider>);
 
     // assert (check our expectation are met)
     expect(
       screen.getByRole("heading", {
-        name: (text) => text.includes("ScoopDash"),
+        name: (text) => text.includes("OMG 10"),
       }),
     ).toBeVisible();
   });

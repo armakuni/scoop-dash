@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { PropsWithChildren } from "react";
 import { Roboto } from "next/font/google";
+import { RepositoryProvider } from "./RepositoryProvider";
 
 export const metadata: Metadata = {
   title: "ScoopDash",
@@ -48,7 +49,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body
         className={`${roboto.className} grid min-h-screen max-w-full grid-cols-1 grid-rows-[4rem,1fr] bg-brand-yellow text-brand-yellow-content`}
       >
+        <RepositoryProvider repository={null}>
         {children}
+        </RepositoryProvider>
       </body>
     </html>
   );
