@@ -33,5 +33,9 @@ test('should have a field to add emails ', async ({ page }) => {
   await submitButton.click();
 
   await expect(page.getByRole('heading', { name: 'Interested Peeps: 1' })).toBeVisible();
+  await expect(textBox).toHaveValue('');
+
+  await page.reload();
+  await expect(page.getByRole('heading', { name: 'Interested Peeps: 1' })).toBeVisible();
   
 });

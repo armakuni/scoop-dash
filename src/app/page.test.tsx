@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 
 import { screen, render } from "@testing-library/react";
-import userEvent from '@testing-library/user-event';
+import userEvent from "@testing-library/user-event";
 import Home from "./page";
 
 describe("Coming soon page", () => {
@@ -36,16 +36,14 @@ describe("Coming soon page", () => {
       screen.getByRole("textbox", { name: "visitors email" }),
     ).toBeVisible();
 
-    expect(
-      screen.getByRole("button", { name: "Submit" }),
-    ).toBeVisible();
+    expect(screen.getByRole("button", { name: "Submit" })).toBeVisible();
   });
 
   it("should submit visitor's details and increase intrested peeps counter", async () => {
     render(<Home />);
 
-    const emailInput = screen.getByRole('textbox', { name: /visitors email/i });
-    const submitButton = screen.getByRole('button', { name: /submit/i });
+    const emailInput = screen.getByRole("textbox", { name: /visitors email/i });
+    const submitButton = screen.getByRole("button", { name: /submit/i });
 
     await userEvent.type(emailInput, "john.doe@gmail.com");
     await userEvent.click(submitButton);
@@ -54,7 +52,6 @@ describe("Coming soon page", () => {
       screen.getByRole("heading", { name: "Interested Peeps: 1" }),
     ).toBeVisible();
 
-    expect(emailInput).toHaveValue('');
+    expect(emailInput).toHaveValue("");
   });
-  
 });
