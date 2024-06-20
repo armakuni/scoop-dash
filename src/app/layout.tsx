@@ -3,6 +3,9 @@ import "./globals.css";
 import { PropsWithChildren } from "react";
 import { Roboto } from "next/font/google";
 import { RepositoryProvider } from "./RepositoryProvider";
+import { PrismaClient } from "@prisma/client";
+
+import {PostgressInterestedPeepRepository} from "@/InterestedPeepRepository";
 
 export const metadata: Metadata = {
   title: "ScoopDash",
@@ -44,12 +47,22 @@ export const metadata: Metadata = {
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
 export default function RootLayout({ children }: PropsWithChildren) {
+  const prisma = new PrismaClient({
+    datasources: {
+      db: {
+        url: process.env.DATABASE_URL,
+      },
+    },
+  });
+
+  const repo = new PostgressInterestedPeepRepository(prisma);
+
   return (
     <html lang="en">
       <body
         className={`${roboto.className} grid min-h-screen max-w-full grid-cols-1 grid-rows-[4rem,1fr] bg-brand-yellow text-brand-yellow-content`}
       >
-        <RepositoryProvider repository={null}>
+        <RepositoryProvider repository={repo}>
         {children}
         </RepositoryProvider>
       </body>
