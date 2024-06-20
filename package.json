@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "dev:db:up": "docker compose up",
+    "dev:db:migrate": "npx prisma migrate dev"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^5.15.0",

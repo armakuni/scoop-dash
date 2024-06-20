@@ -10,11 +10,9 @@ test('Coming Soon Page', async ({ page }) => {
 });
 
 
-test('counter for intrested people ', async ({ page }) => {
+test('counter for interested people ', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'Interested Peeps: 0' })).toBeVisible();
-  
-
 });
 
 

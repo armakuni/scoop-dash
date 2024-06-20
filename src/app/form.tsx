@@ -3,7 +3,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { useRepository } from "./RepositoryProvider";
 import * as EmailValidator from 'email-validator';
 
-import {InterestedPeepRepository} from "@/InterestedPeepRepository";
+import {InterestedPeepRepository} from "@/app/InterestedPeepRepository";
 
 
 export default function RegisterForm() {

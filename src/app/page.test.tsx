@@ -6,7 +6,7 @@ import Home from "./page";
 import { RepositoryProvider } from "./RepositoryProvider";
 
 
-import {InterestedPeepRepository} from "@/InterestedPeepRepository";
+import {InterestedPeepRepository} from "@/app/InterestedPeepRepository";
 
 describe("Coming soon page", () => {
   it("should have the title of the website", async () => {

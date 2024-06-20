@@ -5,7 +5,7 @@ import { Roboto } from "next/font/google";
 import { RepositoryProvider } from "./RepositoryProvider";
 import { PrismaClient } from "@prisma/client";
 
-import {PostgressInterestedPeepRepository} from "@/InterestedPeepRepository";
+import {PostgressInterestedPeepRepository} from "@/app/InterestedPeepRepository";
 
 export const metadata: Metadata = {
   title: "ScoopDash",
